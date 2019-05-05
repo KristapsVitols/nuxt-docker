@@ -20,4 +20,5 @@ services:
       context: ./client
     volumes:
       - /app/node_modules
+      - /app/.nuxt
       - ./client:/app
