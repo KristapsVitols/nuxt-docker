@@ -1,6 +1,6 @@
 <template>
     <dvi>
-        <div>API fetch....</div>
+        <div>API fetch....!!!!</div>
         <p v-for="text in texts">{{ text }}</p>
     </dvi>
 </template>
