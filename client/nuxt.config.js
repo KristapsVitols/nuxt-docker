@@ -50,7 +50,7 @@ module.exports = {
     */
     axios: {
         // See https://github.com/nuxt-community/axios-module#options
-        baseURL: process.env.NODE_ENV === 'production' ? 'http://68.183.79.211' : 'http://localhost:3050',
+        baseURL: process.env.FRONTEND_URL,
     },
 
     /*
@@ -66,5 +66,11 @@ module.exports = {
 
     router: {
         middleware: ['base-url'],
+    },
+
+    env: {
+        nginxUrl: process.env.NGINX_URL,
+        frontendUrl: process.env.FRONTEND_URL,
     }
+
 };

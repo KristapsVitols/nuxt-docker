@@ -10,6 +10,7 @@ export const mutations = {
 
 export const actions = {
     async getTexts(store) {
+        console.log(process.env.nginxUrl);
         const { data } = await this.$axios.get(`${process.env.baseURL}/api/texts`);
         store.commit('setTexts', data.texts);
     }
