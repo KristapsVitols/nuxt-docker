@@ -23,7 +23,6 @@ async function start() {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
-  console.log(process.env.NGINX_URL);
   // Listen the server
   app.listen(port, host)
   consola.ready({
