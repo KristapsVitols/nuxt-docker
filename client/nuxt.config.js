@@ -63,4 +63,8 @@ module.exports = {
         extend(config, ctx) {
         }
     },
+
+    router: {
+        middleware: ['base-url'],
+    }
 };

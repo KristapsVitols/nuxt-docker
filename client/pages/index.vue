@@ -31,7 +31,7 @@
         methods: {
             async getTexts() {
                 const { data } = await this.$axios.get('/api/texts');
-                this.texts = data.texts;
+                // this.texts = data.texts;
             }
         },
     }
