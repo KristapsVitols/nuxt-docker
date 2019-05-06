@@ -1,6 +1,6 @@
 # client
 
-> My sublime Nuxt.js project
+> stuff
 
 ## Build Setup
 

@@ -1,6 +1,7 @@
-import pkg from './package'
+const pkg = require('./package');
 
-export default {
+
+module.exports = {
     mode: 'universal',
 
     /*
@@ -37,10 +38,20 @@ export default {
     ** Nuxt.js modules
     */
     modules: [
+        // Doc: https://axios.nuxtjs.org/usage
+        '@nuxtjs/axios',
         // Doc: https://bootstrap-vue.js.org/docs/
         'bootstrap-vue/nuxt',
         '@nuxtjs/pwa',
+        '@nuxtjs/proxy'
     ],
+    /*
+    ** Axios module configuration
+    */
+    axios: {
+        // See https://github.com/nuxt-community/axios-module#options
+        baseURL: process.env.NODE_ENV === 'production' ? 'http://68.183.79.211' : 'http://localhost:3050',
+    },
 
     /*
     ** Build configuration
@@ -52,9 +63,4 @@ export default {
         extend(config, ctx) {
         }
     },
-
-    server: {
-        port: 3000,
-        host: '0.0.0.0',
-    }
-}
+};

@@ -1,30 +1,38 @@
 <template>
-    <dvi>
-        <div>API fetch....!!!!</div>
-        <p v-for="text in texts">{{ text }}</p>
-    </dvi>
+    <div>
+        <p v-for="text in texts" :key="text">{{ text }}</p>
+        <button type="button" class="btn btn-primary" @click="getTexts">Get texts!!!</button>
+    </div>
 </template>
+
 <script>
     import Logo from '~/components/Logo.vue'
+    import {mapGetters, mapActions} from 'vuex';
 
     export default {
+        async fetch({ store }) {
+            await store.dispatch('getTexts');
+        },
         components: {
             Logo
         },
-        created() {
-            this.getTexts();
+        mounted() {
+            // this.getTexts();
         },
         data() {
             return {
-                texts: [],
+                // texts: [],
+                // isLoading: true,
             }
         },
+        computed: {
+            ...mapGetters(['texts']),
+        },
         methods: {
-            getTexts() {
-                fetch('/api/texts')
-                    .then(re => re.json())
-                    .then(data => this.texts = data.texts);
-            },
-        }
+            async getTexts() {
+                const { data } = await this.$axios.get('/api/texts');
+                this.texts = data.texts;
+            }
+        },
     }
 </script>
