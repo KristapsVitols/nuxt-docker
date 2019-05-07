@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p v-for="text in texts" :key="text">{{ text }}</p>
+        <p v-for="text in texts" :key="text.text">{{ text.text }}</p>
         <button type="button" class="btn btn-primary" @click="getTexts">Get texts!!!</button>
     </div>
 </template>
